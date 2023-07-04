@@ -2,9 +2,9 @@ const options = {
 
     method: 'GET',
     headers: {
-      'app_id': '${process.env.APP_ID}',
-      'app_secret': '${process.env.APP_SECRET}',
-      'default_graph_version': '${process.env.DEFAULT_GRAPH_VERSION}'
+      'app_id': '${{process.env.APP_ID}}',
+      'app_secret': '${{process.env.APP_SECRET}}',
+      'default_graph_version': '${{process.env.DEFAULT_GRAPH_VERSION}}'
     }
   };
   
@@ -48,7 +48,7 @@ const options = {
     }
   }
   
-  fetch(`https://graph.facebook.com/${process.env.FACEBOOK_PAGE_ID}/posts?fields=full_picture,permalink_url,message&access_token=${process.env.ACCESS_TOKEN}`, options)
+  fetch(`https://graph.facebook.com/${{process.env.FACEBOOK_PAGE_ID}}/posts?fields=full_picture,permalink_url,message&access_token=${{process.env.ACCESS_TOKEN}}`, options)
     .then(res => res.json())
     .then(response => {
       posts = response.data;
